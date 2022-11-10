@@ -15,10 +15,14 @@ def download_image(img_url):
         print(f"{img_name} was downloaded")
 
 
-start = time.perf_counter()
+def main():
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        executor.map(download_image, img_urls)
 
-with concurrent.futures.ThreadPoolExecutor() as executor:
-    executor.map(download_image, img_urls)
 
-end = time.perf_counter()
-print(f"Tasks ended in {round(end - start, 2)} second(s)")
+# Pool de threads
+if __name__ == '__main__':
+    start = time.perf_counter()
+    main()
+    end = time.perf_counter()
+    print(f"Tasks ended in {round(end - start, 2)} second(s)")

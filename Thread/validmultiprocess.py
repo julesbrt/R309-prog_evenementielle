@@ -1,5 +1,5 @@
 import time
-import concurrent.futures
+import multiprocessing
 import requests
 
 img_urls = ['https://cdn.pixabay.com/photo/2020/04/15/04/11/lake-5045059_960_720.jpg',
@@ -15,10 +15,17 @@ def download_image(img_url):
         print(f"{img_name} was downloaded")
 
 
-start = time.perf_counter()
+def main():
+    p1 = multiprocessing.Process(target=download_image, args=[img_urls[0]])
+    p2 = multiprocessing.Process(target=download_image, args=[img_urls[1]])
+    p1.start()
+    p2.start()
+    p1.join()
+    p2.join()
 
-with concurrent.futures.ThreadPoolExecutor() as executor:
-    executor.map(download_image, img_urls)
 
-end = time.perf_counter()
-print(f"Tasks ended in {round(end - start, 2)} second(s)")
+if __name__ == '__main__':
+    start = time.perf_counter()
+    main()
+    end = time.perf_counter()
+    print(f"Tasks ended in {round(end - start, 2)} second(s)")
