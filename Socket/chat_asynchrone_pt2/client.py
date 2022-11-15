@@ -16,9 +16,6 @@ if __name__ == '__main__':
         client_socket.send(message.encode())
         data = client_socket.recv(1024).decode()
         print(data)
-    
+
     print('Fermeture du client')
     client_socket.close()
-
-
-    #cd .\Desktop\RT2\S3\R309-Prog_evenementielle\R309progeven\R309\Socket\

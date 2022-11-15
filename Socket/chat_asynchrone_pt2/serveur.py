@@ -14,15 +14,13 @@ server_socket.listen(1)
 
 if __name__ == '__main__':
     while data != arret and reply != arret:
-        client_socket, address = server_socket.accept()
+        conn, address = server_socket.accept()
         data = reply = ''
         print('Connexion établie avec: ', str(address))
         while data != bye and reply != bye and data != arret and reply != arret:
-            data = client_socket.recv(1024).decode()
+            data = conn.recv(1024).decode()
             print(data)
             reply = input('Entrez votre réponse: ')
-            client_socket.send(reply.encode())
-        client_socket.close()
+            conn.send(reply.encode())
+        conn.close()
     server_socket.close()
-
-
