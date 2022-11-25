@@ -1,6 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QGridLayout, QLabel, QLineEdit, QPushButton, QComboBox, QMessageBox
-from PyQt5.QtCore import QCoreApplication
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLineEdit, QGridLayout, QWidget, QLabel, QComboBox, QPushButton, QMessageBox
 
 
 class MainWindow(QMainWindow):
