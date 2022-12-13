@@ -1,15 +1,15 @@
 import socket
 
 host = '127.0.0.1'
-port = 10000
+port = 8081
 message = ''
-client_socket = socket.socket()
 bye = 'bye'
 arret = 'arret'
 data = ''
 
 
 if __name__ == '__main__':
+    client_socket = socket.socket()
     client_socket.connect((host, port))
     while message != bye and data != bye and message != arret and data != arret:
         message = input(str('Entrez votre message: '))

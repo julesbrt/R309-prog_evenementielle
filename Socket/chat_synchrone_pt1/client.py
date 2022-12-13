@@ -2,7 +2,7 @@ import socket
 import threading
 
 host = '127.0.0.1'
-port = 10000
+port = 8081
 message = ''
 client_socket = socket.socket()
 bye = 'bye'
